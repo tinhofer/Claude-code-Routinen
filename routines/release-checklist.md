@@ -3,7 +3,7 @@ name: release-checklist
 purpose: Pre-release verification before tagging or publishing.
 inputs:
   - Target version (e.g. v1.4.0)
-  - Branch to release from (default: main)
+  - "Branch to release from (default: main)"
 when-to-use: Immediately before cutting a release tag.
 ---
 
