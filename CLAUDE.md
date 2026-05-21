@@ -26,9 +26,10 @@ A routine is a reusable prompt. It must:
   read by humans skimming the index.
 - `name` in the front matter must match the filename (without `.md`).
   `routines/code-review.md` → `name: code-review`.
-- Headings inside a routine: `# <Title>`, then `## Steps`,
-  `## Output format`, `## Guardrails`. Don't invent new top-level
-  sections without a reason.
+- Structure of a routine file, in order: YAML front matter
+  (delimited by `---`), then the `# <Title>` heading, then `## Steps`,
+  `## Output format`, `## Guardrails`. Front matter always comes first;
+  don't invent new top-level sections without a reason.
 - Wrap prose at ~72 columns. Code blocks and tables don't need wrapping.
 - Use plain Markdown. No HTML, no emoji.
 
