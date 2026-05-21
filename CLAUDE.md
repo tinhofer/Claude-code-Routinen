@@ -26,6 +26,10 @@ A routine is a reusable prompt. It must:
   read by humans skimming the index.
 - `name` in the front matter must match the filename (without `.md`).
   `routines/code-review.md` → `name: code-review`.
+- Quote any front-matter string that contains a colon (e.g. `"Branch
+  to release from (default: main)"`). Unquoted colons inside list
+  items break YAML parsing and cause GitHub to render an error banner
+  instead of the file.
 - Structure of a routine file, in order: YAML front matter
   (delimited by `---`), then the `# <Title>` heading, then `## Steps`,
   `## Output format`, `## Guardrails`. Front matter always comes first;

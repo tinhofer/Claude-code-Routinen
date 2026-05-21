@@ -2,8 +2,8 @@
 name: daily-standup
 purpose: Summarize recent work for a standup or daily log.
 inputs:
-  - Time window (default: since yesterday 9am)
-  - Optional: author filter (default: current git user)
+  - "Time window (default: since yesterday 9am)"
+  - "Optional: author filter (default: current git user)"
 when-to-use: Before standup, or at end of day to write a log entry.
 ---
 
