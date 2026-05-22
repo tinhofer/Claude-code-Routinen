@@ -14,6 +14,7 @@ routines/
   debug.md               # Systematic bug hunt
   release-checklist.md   # Pre-release verification
   daily-standup.md       # Summarize yesterday's work
+  update-publications.md # Refresh the labourlaw.at publications list
 templates/
   routine.md             # Template for new routines
 ```
@@ -50,3 +51,4 @@ the routine is loaded into context when needed.
 | [debug](routines/debug.md) | Reproduce, isolate, and fix a bug |
 | [release-checklist](routines/release-checklist.md) | Pre-release verification |
 | [daily-standup](routines/daily-standup.md) | Summarize recent work for standup |
+| [update-publications](routines/update-publications.md) | Refresh the labourlaw.at publications list (gather → diff → review → publish) |
