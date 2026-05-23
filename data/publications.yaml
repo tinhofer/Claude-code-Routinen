@@ -1,0 +1,1156 @@
+# Publications master file for labourlaw.at
+#
+# Single source of truth for the publications list. The website is a
+# rendered view of this file. Maintained via routines/update-publications.md.
+#
+# Bootstrapped 2026-05-22 from the verbatim list on the firm website,
+# as provided in 20240504_Publikationen_Andreas.docx (site export dated
+# 2024-05-04). Every `citation` is copied verbatim from that source and
+# must never be reformatted or 'tidied'. The `title`/`venue`/`year`
+# fields are machine-derived helpers split from the citation; spot-check
+# them, but the `citation` string is canonical.
+#
+# type: article | book | chapter | commentary | editorial | press | talk
+#   (press = newspaper/media pieces, the site's 'Beiträge in
+#   Tageszeitungen und sonstigen Medien' section.)
+
+- type: editorial
+  authors:
+  - Tinhofer, A.
+  - Susanne Auer-Mayer
+  title: 'RDB Keywords: Arbeitsrecht'
+  venue: null
+  year: 2024
+  citation: 'RDB Keywords: Arbeitsrecht (rdb.at) (Hrsg gemeinsam mit Susanne Auer-Mayer) (letzte Aktualisierung April 2024)'
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: commentary
+  authors:
+  - Tinhofer, A.
+  title: Der allgemeine Kündigungs- und Entlassungsschutz
+  venue: Mazal/Risak (Hrsg), Arbeitsrecht – System und Praxiskommentar (letzte Aktualisierung April 2024)
+  year: 2024
+  citation: Der allgemeine Kündigungs- und Entlassungsschutz, in Mazal/Risak (Hrsg), Arbeitsrecht – System und Praxiskommentar (letzte Aktualisierung April 2024)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: commentary
+  authors:
+  - Tinhofer, A.
+  title: Employment Conditions in Austria
+  venue: Mercer (Hrsg), Worldwide Benefit & Employment Guidelines (letzte Aktualisierung Mai 2024)
+  year: 2024
+  citation: Employment Conditions in Austria, in Mercer (Hrsg), Worldwide Benefit & Employment Guidelines (letzte Aktualisierung Mai 2024)
+  lang: en
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Kündigungsschutz für Datenschutzbeauftragte
+  venue: ZAS
+  year: 2023
+  citation: Kündigungsschutz für Datenschutzbeauftragte, ZAS 2023/47
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  - Alexander Zojer
+  title: KI-Systeme im Personalmanagement rechtssicher einsetzung, personal manager 2023/6
+  venue: null
+  year: 2023
+  citation: KI-Systeme im Personalmanagement rechtssicher einsetzung, personal manager 2023/6 (gemeinsam mit Alexander Zojer)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Künstliche Intelligenz diskriminiert bei Jobbewerbungen
+  venue: Der Standard
+  year: 2023
+  citation: Künstliche Intelligenz diskriminiert bei Jobbewerbungen, Der Standard, 18.09.2023
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kündigung erlaubt? Neben Lohneinbußen sind auch Arbeitsbedingungen relevant
+  venue: Der Standard
+  year: 2023
+  citation: Kündigung erlaubt? Neben Lohneinbußen sind auch Arbeitsbedingungen relevant, Der Standard, 20.11.2023
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  title: Employment Conditions in Austria
+  venue: Mercer (Hrsg), Worldwide Benefit & Employment Guidelines (Aktualisierung, Mai 2023)
+  year: 2023
+  citation: Employment Conditions in Austria, in Mercer (Hrsg), Worldwide Benefit & Employment Guidelines (Aktualisierung, Mai 2023)
+  lang: en
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Wer heimlich ein Gespräch aufnimmt, kann entlassen werden
+  venue: Der Standard
+  year: 2023
+  citation: Wer heimlich ein Gespräch aufnimmt, kann entlassen werden, Der Standard, 30.05.2023
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Leiharbeiter müssen Krankenstand nur an Beschäftigerbetrieb melden
+  venue: Der Standard
+  year: 2023
+  citation: Leiharbeiter müssen Krankenstand nur an Beschäftigerbetrieb melden, Der Standard, 28.03.2023
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Algorithmenbasierte Entscheidungen und Diskriminierung
+  venue: DRdA
+  year: 2022
+  citation: Algorithmenbasierte Entscheidungen und Diskriminierung, DRdA 2022, 171
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Frühwarnsystem - einheitliche Auflösungsabsicht bei nochmaligen Kündigungen? ZAS 2022/13
+  venue: null
+  year: 2022
+  citation: Frühwarnsystem - einheitliche Auflösungsabsicht bei nochmaligen Kündigungen? ZAS 2022/13
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Warum Arbeiter im Gastgewerbe künftig längere Kündigungsfristen haben
+  venue: Der Standard
+  year: 2022
+  citation: Warum Arbeiter im Gastgewerbe künftig längere Kündigungsfristen haben, Der Standard, 08.05.2022
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Wer Kündigung anficht, kann vom Sozialplan ausgeschlossen werden
+  venue: Der Standard
+  year: 2021
+  citation: Wer Kündigung anficht, kann vom Sozialplan ausgeschlossen werden, Der Standard, 11.06.2021
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Einvernehmliche Beendigung kann angefochten werden
+  venue: Der Standard
+  year: 2021
+  citation: Einvernehmliche Beendigung kann angefochten werden, Der Standard, 15.02.2021
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Hinweise und Tipps, wie Sie rechtliche Fallstricke beim „Frühwarnsystem“ (§ 45a AMFG) sicher umgehen
+  venue: PVP
+  year: 2020
+  citation: Hinweise und Tipps, wie Sie rechtliche Fallstricke beim „Frühwarnsystem“ (§ 45a AMFG) sicher umgehen, PVP 2020/76
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  title: Das „Frühwarnsystem“ gemäß § 45a AMFG – Die Bestimmung der betriebsbezogenen Schwellenwerte
+  venue: Brameshuber/Friedrich/Karl (Hrsg), Festschrift Franz Marhold (Manz 2020)
+  year: 2020
+  citation: Das „Frühwarnsystem“ gemäß § 45a AMFG – Die Bestimmung der betriebsbezogenen Schwellenwerte, in Brameshuber/Friedrich/Karl (Hrsg), Festschrift Franz Marhold (Manz 2020)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Das AMS-Frühwarnsystem ist ein Minenfeld für Unternehmen
+  venue: Der Standard
+  year: 2020
+  citation: Das AMS-Frühwarnsystem ist ein Minenfeld für Unternehmen, Der Standard, 21.12.2020
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  title: Klauseln zu Kündigungsfristen und -terminen, Arbeitskräfteüberlassung, Nutzung von Büroinfrastruktur und dgl, Betriebspension sowie Gehaltsvorschuss und Arbeitgeberdarlehen
+  venue: Reissner/Neumayr (Hrsg), Zeller Handbuch Arbeitsvertrags-Klauseln (Manz 2019, 2. Auflage)
+  year: 2019
+  citation: Klauseln zu Kündigungsfristen und -terminen, Arbeitskräfteüberlassung, Nutzung von Büroinfrastruktur und dgl, Betriebspension sowie Gehaltsvorschuss und Arbeitgeberdarlehen, in Reissner/Neumayr (Hrsg), Zeller Handbuch Arbeitsvertrags-Klauseln (Manz 2019, 2. Auflage)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  title: Brameshuber/Kovács
+  venue: null
+  year: 2019
+  citation: Brameshuber/Kovács (Hrsg), Übungsbuch Österreichisches Arbeitsrecht, Übungsfälle 38, 39 und 42 (Verlag Österreich 2019)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  - Mitschka
+  title: Kein Recht auf den gleichen Job nach der Karenz
+  venue: Der Standard
+  year: 2018
+  citation: Kein Recht auf den gleichen Job nach der Karenz, Der Standard, 04.06.2018 (gemeinsam mit Mitschka)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  - F. Schörghofer
+  title: Anstellungsverhältnis des Vorstandsmitglieds (gemeinsam mit F. Schörghofer)
+  venue: Kalss/Frotz/P. Schörghofer, Handbuch Vorstand (facultas Universitätsverlag 2017)
+  year: 2017
+  citation: Anstellungsverhältnis des Vorstandsmitglieds (gemeinsam mit F. Schörghofer), in Kalss/Frotz/P. Schörghofer, Handbuch Vorstand (facultas Universitätsverlag 2017)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Dauer des besonderen Bestandschutzes bei Nichteinigung auf Elternteilzeit
+  venue: ZAS
+  year: 2017
+  citation: Dauer des besonderen Bestandschutzes bei Nichteinigung auf Elternteilzeit, ZAS 2017/49
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entsendung und anwendbares Recht – Sonderprobleme bei Konzernüberlassung ins Ausland
+  venue: ZAS
+  year: 2017
+  citation: Entsendung und anwendbares Recht – Sonderprobleme bei Konzernüberlassung ins Ausland, ZAS 2017, 23
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Hoffnungsschimmer bei Lohndumpingstrafen
+  venue: Der Standard
+  year: 2017
+  citation: Hoffnungsschimmer bei Lohndumpingstrafen, Der Standard, 16.10.2017
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Bei Meldepflichten schlägt Österreich Deutschland
+  venue: Der Standard
+  year: 2017
+  citation: Bei Meldepflichten schlägt Österreich Deutschland, Der Standard, 06.02.2017
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Tauziehen um All-in-Gehälter
+  venue: Der Standard
+  year: 2016
+  citation: Tauziehen um All-in-Gehälter, Der Standard, 22.02.2016
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Geschlechterdiskriminierung durch Befristung mit Regelpensionsalter
+  venue: ZAS
+  year: 2015
+  citation: Geschlechterdiskriminierung durch Befristung mit Regelpensionsalter, ZAS 2015/29
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Alkomat-Planquadrat am Arbeitsplatz ist unzulässig
+  venue: Der Standard
+  year: 2015
+  citation: Alkomat-Planquadrat am Arbeitsplatz ist unzulässig, Der Standard, 15.06.2015
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Die Beendigung des Dienstverhältnisses von älteren Arbeitnehmern
+  venue: ZAS
+  year: 2014
+  citation: Die Beendigung des Dienstverhältnisses von älteren Arbeitnehmern, ZAS 2014/21
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Gesetz gegen Lohndumping wird verschärft
+  venue: Wiener Zeitung
+  year: 2014
+  citation: Gesetz gegen Lohndumping wird verschärft, Wiener Zeitung, 16.12.2014
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Übertritt in das neue Abfertigungssystem
+  venue: Wiener Zeitung
+  year: 2014
+  citation: Übertritt in das neue Abfertigungssystem, Wiener Zeitung, 11.07.2014
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kündigung wegen Pensionsanspruch
+  venue: Wiener Zeitung
+  year: 2014
+  citation: Kündigung wegen Pensionsanspruch, Wiener Zeitung, 04.04.2014
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Das „Sperrrecht“ des Betriebsrats – wie lange noch? Anmerkung zu 9 Ob A 38/13y
+  venue: RdW
+  year: 2013
+  citation: Das „Sperrrecht“ des Betriebsrats – wie lange noch? Anmerkung zu 9 Ob A 38/13y, RdW 2013/669
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Arbeitszeitgesetz auf leitende Angestellte nicht anwendbar
+  venue: Wiener Zeitung
+  year: 2013
+  citation: Arbeitszeitgesetz auf leitende Angestellte nicht anwendbar, Wiener Zeitung, 19.12.2013
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Beleidigung auf Facebook kostet Betriebsrat den Job
+  venue: Der Standard
+  year: 2013
+  citation: Beleidigung auf Facebook kostet Betriebsrat den Job, Der Standard, 04.09.2013
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Freiwillige Sozialleistungen auch für Leiharbeitskräfte?
+  venue: Wiener Zeitung
+  year: 2013
+  citation: Freiwillige Sozialleistungen auch für Leiharbeitskräfte?, Wiener Zeitung, 28.06.2013
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Elternteilzeit fordert Flexibilität
+  venue: Wiener Zeitung
+  year: 2013
+  citation: Elternteilzeit fordert Flexibilität, Wiener Zeitung, 05.04.2013
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  title: Allgemeiner und besonderer Bestandschutz
+  venue: Mazal/Hutter (Hrsg), Fachlexikon Arbeitsrecht (Linde Verlag 2012)
+  year: 2012
+  citation: Allgemeiner und besonderer Bestandschutz, in Mazal/Hutter (Hrsg), Fachlexikon Arbeitsrecht (Linde Verlag 2012)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Schadenersatz bei Mobbing
+  venue: Wiener Zeitung
+  year: 2012
+  citation: Schadenersatz bei Mobbing, Wiener Zeitung, 28.12.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Leiharbeitnehmer erhalten mehr Rechte
+  venue: Wiener Zeitung
+  year: 2012
+  citation: Leiharbeitnehmer erhalten mehr Rechte, Wiener Zeitung, 02.11.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Wiedereinstellungszusage ist rechtsverbindlich
+  venue: Wiener Zeitung
+  year: 2012
+  citation: Wiedereinstellungszusage ist rechtsverbindlich, Wiener Zeitung, 25.08.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Reduzierter Arbeitsrechtsschutz für Führungskräfte
+  venue: Wiener Zeitung
+  year: 2012
+  citation: Reduzierter Arbeitsrechtsschutz für Führungskräfte, Wiener Zeitung, 07.07.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kollektivvertragswechsel durch Betriebsübergang
+  venue: Wiener Zeitung
+  year: 2012
+  citation: Kollektivvertragswechsel durch Betriebsübergang, Wiener Zeitung, 28.04.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Entlassung wegen exzessiver privater Internetnutzung
+  venue: Wiener Zeitung
+  year: 2012
+  citation: Entlassung wegen exzessiver privater Internetnutzung, Wiener Zeitung, 25.02.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kündigungsschutz für Behinderte gilt auch bei Änderungskündigung
+  venue: jus alumni
+  year: 2012
+  citation: Kündigungsschutz für Behinderte gilt auch bei Änderungskündigung, jus alumni, 01/2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Absurde Betriebsratswahl bleibt gültig
+  venue: Der Standard
+  year: 2012
+  citation: Absurde Betriebsratswahl bleibt gültig, Der Standard, 25.01.2012
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Standortverlegung ins Ausland
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Standortverlegung ins Ausland, Wiener Zeitung, 31.12.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Neue Regeln für Abfertigungsberechnung
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Neue Regeln für Abfertigungsberechnung, Wiener Zeitung, 05.11.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kündigungsschutz bei Elternteilzeit
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Kündigungsschutz bei Elternteilzeit, Wiener Zeitung, 27.08.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Hohe Strafen für Lohn- und Sozialdumping
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Hohe Strafen für Lohn- und Sozialdumping, Wiener Zeitung, 25.06.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Krankheit – Meldung und Nachweis
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Krankheit – Meldung und Nachweis, Wiener Zeitung, 28.05.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Austritt wegen Streits am Arbeitsplatz
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Austritt wegen Streits am Arbeitsplatz, Wiener Zeitung, 02.05.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Widerspruch gegen Betriebsübergang weiterhin möglich
+  venue: Der Standard
+  year: 2011
+  citation: Widerspruch gegen Betriebsübergang weiterhin möglich, Der Standard, 20.04.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Mitarbeiterbindung durch Prämien
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Mitarbeiterbindung durch Prämien, Wiener Zeitung, 26.03.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kündigungsschutz im Bildungssektor
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Kündigungsschutz im Bildungssektor, Wiener Zeitung, 05.03.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: 'Weiterbildung: Rückersatz nur bei voller Freistellung'
+  venue: Der Standard
+  year: 2011
+  citation: 'Weiterbildung: Rückersatz nur bei voller Freistellung, Der Standard, 09.02.2011'
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Mehr Einkommenstransparenz
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Mehr Einkommenstransparenz, Wiener Zeitung, 31.01.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Spezieller Kündigungsschutz gelockert
+  venue: Wiener Zeitung
+  year: 2011
+  citation: Spezieller Kündigungsschutz gelockert, Wiener Zeitung, 10.01.2011
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  - Sarah Stanzel
+  title: Restrictive Covenants in Europe (gemeinsam mit Sarah Stanzel)
+  venue: ela Briefing
+  year: 2010
+  citation: Restrictive Covenants in Europe (gemeinsam mit Sarah Stanzel), ela Briefing, 06/2010
+  lang: en
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kündigungsschutz trotz Pensionsanspruchs
+  venue: Der Standard
+  year: 2010
+  citation: Kündigungsschutz trotz Pensionsanspruchs, Der Standard, 01.12.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Superlative im Dienstzeugnis
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Superlative im Dienstzeugnis, Wiener Zeitung, 27.11.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Schutz vor Altersdiskriminierung
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Schutz vor Altersdiskriminierung, Wiener Zeitung, 02.11.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Haftung bei Schädigung des Dienstgebers
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Haftung bei Schädigung des Dienstgebers, Wiener Zeitung, 04.10.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: OGH erleichtert Kündigung im Quartal
+  venue: Der Standard
+  year: 2010
+  citation: OGH erleichtert Kündigung im Quartal, Der Standard, 07.09.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Ehemalige Mitarbeiter als Mitbewerber
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Ehemalige Mitarbeiter als Mitbewerber, Wiener Zeitung, 30.08.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kühlen Kopf bewahren – Job behalten
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Kühlen Kopf bewahren – Job behalten, Wiener Zeitung, 31.07.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kippen die Höchstrichter bald den Kündigungsschutz für Behinderte? Wiener Zeitung, 24.07.2010
+  venue: null
+  year: 2010
+  citation: Kippen die Höchstrichter bald den Kündigungsschutz für Behinderte? Wiener Zeitung, 24.07.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Rechtstipps für die schönste Zeit im Jahr
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Rechtstipps für die schönste Zeit im Jahr, Wiener Zeitung, 26.06.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Schon bei der Bewerbung diskriminiert
+  venue: Wiener Zeitung
+  year: 2010
+  citation: Schon bei der Bewerbung diskriminiert, Wiener Zeitung, 29.05.2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Ist Kontrolle besser?
+  venue: Verkaufen
+  year: 2010
+  citation: Ist Kontrolle besser?, Verkaufen, 03/2010
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: 'OGH: Keine Urlaubsabgeltung – keine Ersatzleistung bei geblockter Altersteilzeit'
+  venue: Der Standard
+  year: 2010
+  citation: 'OGH: Keine Urlaubsabgeltung – keine Ersatzleistung bei geblockter Altersteilzeit, Der Standard, 03.02.2010'
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Die organisatorischen Grenzen der sozialen Gestaltungspflicht im allgemeinen Kündigungsschutz (Betrieb, Unternehmen, Konzern)
+  venue: RdW
+  year: 2009
+  citation: Die organisatorischen Grenzen der sozialen Gestaltungspflicht im allgemeinen Kündigungsschutz (Betrieb, Unternehmen, Konzern), RdW 2009/780
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: 'OGH: Bei langer Freistellung ist Urlaub zu nehmen'
+  venue: Der Standard
+  year: 2009
+  citation: 'OGH: Bei langer Freistellung ist Urlaub zu nehmen, Der Standard, 14.10.2009'
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: OGH erleichtert Kündigung im Konzern
+  venue: Der Standard
+  year: 2009
+  citation: OGH erleichtert Kündigung im Konzern, Der Standard, 02.09.2009
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Wiedereinstellung statt Kurzarbeit
+  venue: Die Presse
+  year: 2009
+  citation: Wiedereinstellung statt Kurzarbeit, Die Presse, 29.08.2009
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Der freie Dienstvertrag
+  venue: Die Presse
+  year: 2009
+  citation: Der freie Dienstvertrag, Die Presse, 04.07.2009
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Karibikurlaub im Krankenstand?
+  venue: Die Presse
+  year: 2009
+  citation: Karibikurlaub im Krankenstand?, Die Presse, 30.05.2009
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Gastro-Mitarbeiter vor Rauch schützen
+  venue: Die Presse
+  year: 2009
+  citation: Gastro-Mitarbeiter vor Rauch schützen, Die Presse, 28.02.2009
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Kein Gehaltsabzug für Negativstunden
+  venue: Die Presse
+  year: 2009
+  citation: Kein Gehaltsabzug für Negativstunden, Die Presse, 21.03.2009
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Der soziale Kündigungsschutz – Ausgewählte Grundsatzfragen mit Praxisrelevanz im Spiegel der neueren OGH-Judikatur
+  venue: ZAS
+  year: 2008
+  citation: Der soziale Kündigungsschutz – Ausgewählte Grundsatzfragen mit Praxisrelevanz im Spiegel der neueren OGH-Judikatur, ZAS 2008/8
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Sozialwidrige Kündigung
+  venue: Die Presse
+  year: 2008
+  citation: Sozialwidrige Kündigung, Die Presse, 16.08.2008
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  - Keisler
+  - Wallner
+  title: Chapter on Austria (gemeinsam mit Keisler und Wallner)
+  venue: Kontrimas (Hrsg), International Expatriate Employment Handbook (Kluwer Law International, 2007)
+  year: 2007
+  citation: Chapter on Austria (gemeinsam mit Keisler und Wallner), in Kontrimas (Hrsg), International Expatriate Employment Handbook (Kluwer Law International, 2007)
+  lang: en
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Am Anfang war der Arbeitsvertrag
+  venue: jusclub
+  year: 2007
+  citation: Am Anfang war der Arbeitsvertrag, jusclub, 03/2007
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Arbeitszeitgesetz bringt auch größere Flexibilität
+  venue: Lexpress
+  year: 2007
+  citation: Arbeitszeitgesetz bringt auch größere Flexibilität, Lexpress, 14.12.2007
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Study on the Application of Directive 2001/23/EC to Cross Border Transfers of Undertakings (2006)
+  venue: null
+  year: 2006
+  citation: Study on the Application of Directive 2001/23/EC to Cross Border Transfers of Undertakings (2006)
+  lang: en
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  - Stupar
+  title: „Studenten-Tsunami“ nach EuGH-Urteil zum Universitätszugang?
+  venue: ZESAR
+  year: 2006
+  citation: „Studenten-Tsunami“ nach EuGH-Urteil zum Universitätszugang?, ZESAR 4/2006 (gemeinsam mit Stupar)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Die kollektivrechtlichen Aspekte der Versetzung – Der Versetzungsschutz gem § 101 ArbVG
+  venue: ZAS
+  year: 2005
+  citation: Die kollektivrechtlichen Aspekte der Versetzung – Der Versetzungsschutz gem § 101 ArbVG, ZAS 2005/12
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: book
+  authors:
+  - Tinhofer, A.
+  - Hainz
+  title: Arbeits- und Sozialrecht in Mittel- und Osteuropa
+  venue: null
+  year: 2004
+  citation: Arbeits- und Sozialrecht in Mittel- und Osteuropa (Hrsg, gemeinsam mit Hainz) (ZAS-Spezial 2004)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: chapter
+  authors:
+  - Tinhofer, A.
+  title: Chapter on Austria
+  venue: Mayne/Humphries/Tinhofer/Watson (Hrsg), Cross-border Transfers and Redundancies (Tottel Publishing, 2004)
+  year: 2004
+  citation: Chapter on Austria, in Mayne/Humphries/Tinhofer/Watson (Hrsg), Cross-border Transfers and Redundancies (Tottel Publishing, 2004)
+  lang: en
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu OGH 19.12.2001, 9 Ob A 244/01z (Ausgaben für Zweitwohnsitz und sozialer Kündigungsschutz)
+  venue: DRdA
+  year: 2003
+  citation: Entscheidungsanmerkung zu OGH 19.12.2001, 9 Ob A 244/01z (Ausgaben für Zweitwohnsitz und sozialer Kündigungsschutz), DRdA 2003/14
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: book
+  authors:
+  - Tinhofer, A.
+  title: Kündigung aus wirtschaftlichen Gründen – Ein Handbuch für die Praxis
+  venue: null
+  year: 2002
+  citation: Kündigung aus wirtschaftlichen Gründen – Ein Handbuch für die Praxis (LexisNexis 2002)
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu OGH 28.9.2001, 8 Ob A 201/01v (Unternehmerische Entscheidungsfreiheit und Kündigungsschutz)
+  venue: DRdA
+  year: 2002
+  citation: Entscheidungsanmerkung zu OGH 28.9.2001, 8 Ob A 201/01v (Unternehmerische Entscheidungsfreiheit und Kündigungsschutz), DRdA 2002/37
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu OGH 25.6.2001, 8 Ob A 7/01i (Betriebsübergang)
+  venue: RdW
+  year: 2001
+  citation: Entscheidungsanmerkung zu OGH 25.6.2001, 8 Ob A 7/01i (Betriebsübergang), RdW 2001, 761
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu OGH 12.7.2000, 9 Ob A 93/00t (Betriebsübergang und Wiedereinstellung)
+  venue: RdW
+  year: 2001
+  citation: Entscheidungsanmerkung zu OGH 12.7.2000, 9 Ob A 93/00t (Betriebsübergang und Wiedereinstellung), RdW 2001, 184
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Keine Sozialwidrigkeit der Kündigung bei Anbot eines zumutbaren Ersatzarbeitsplatzes
+  venue: RdW
+  year: 2000
+  citation: Keine Sozialwidrigkeit der Kündigung bei Anbot eines zumutbaren Ersatzarbeitsplatzes, RdW 2000/389
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu OGH 12.6.1997, 8 Ob A 41/97f
+  venue: ZAS
+  year: 1999
+  citation: Entscheidungsanmerkung zu OGH 12.6.1997, 8 Ob A 41/97f, ZAS 1999/3
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu EuGH 12.11.1998 (C-399/96 – Europieces SA) (Betriebsübergang und Liquidation)
+  venue: RdW
+  year: 1999
+  citation: Entscheidungsanmerkung zu EuGH 12.11.1998 (C-399/96 – Europieces SA) (Betriebsübergang und Liquidation), RdW 1999, 35
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Reinigungskräfte beschäftigen weiterhin den EuGH
+  venue: RdW
+  year: 1999
+  citation: Reinigungskräfte beschäftigen weiterhin den EuGH, RdW 1999, 33
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Beendigung der Betriebsratsfreistellung infolge Betriebsteilveräußerung? (II)
+  venue: RdW
+  year: 1998
+  citation: Beendigung der Betriebsratsfreistellung infolge Betriebsteilveräußerung? (II), RdW 1998, 289
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: press
+  authors:
+  - Tinhofer, A.
+  title: Der Auftrag als Trojanisches Pferd
+  venue: Der Standard
+  year: 1998
+  citation: Der Auftrag als Trojanisches Pferd, Der Standard, 15.12.1998
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Neues zur Beweislast bei Geschlechterdiskriminierung
+  venue: RdW
+  year: 1997
+  citation: Neues zur Beweislast bei Geschlechterdiskriminierung, RdW 1997, 459
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Outsourcing und Auftragsnachfolge aus der Sicht des Arbeitsrechts
+  venue: RdW
+  year: 1997
+  citation: Outsourcing und Auftragsnachfolge aus der Sicht des Arbeitsrechts, RdW 1997, 341
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  - Runggaldier
+  title: 'La politica sociale communitaria: il caso Austriaco'
+  venue: Diritto delle relazioni industriali
+  year: 1996
+  citation: 'La politica sociale communitaria: il caso Austriaco, Diritto delle relazioni industriali 1996, 23 (gemeinsam mit Runggaldier)'
+  lang: it
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Arbeitszeit-RL wurde auf korrekter Rechtsgrundlage erlassen
+  venue: RdW
+  year: 1996
+  citation: Arbeitszeit-RL wurde auf korrekter Rechtsgrundlage erlassen, RdW 1996, 587
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Erstes OGH-Urteil zum „Outsourcing“
+  venue: RdW
+  year: 1996
+  citation: Erstes OGH-Urteil zum „Outsourcing“, RdW 1996, 426
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Der Wechsel des Vertriebshändlers als Betriebsübergang
+  venue: RdW
+  year: 1996
+  citation: Der Wechsel des Vertriebshändlers als Betriebsübergang, RdW 1996, 211
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Kurskorrektur in der EuGH-Rechtsprechung zur Betriebsübergangs-Richtlinie?
+  venue: RdW
+  year: 1995
+  citation: Kurskorrektur in der EuGH-Rechtsprechung zur Betriebsübergangs-Richtlinie? , RdW 1995, 430
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: 'L’impatto della dimensione comunitaria sul diritto del lavoro austriaco: la Direttiva n. 77/187 e la nuova disciplina dei trasferimenti d’azienda'
+  venue: Diritto delle Relazioni Industriali
+  year: 1995
+  citation: 'L’impatto della dimensione comunitaria sul diritto del lavoro austriaco: la Direttiva n. 77/187 e la nuova disciplina dei trasferimenti d’azienda, Diritto delle Relazioni Industriali N.1-1995, 41'
+  lang: it
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Entscheidungsanmerkung zu OGH 2.9.1992 (Günstigkeitsvergleich bei Kündigungsfristen)
+  venue: ZAS
+  year: 1994
+  citation: Entscheidungsanmerkung zu OGH 2.9.1992 (Günstigkeitsvergleich bei Kündigungsfristen), ZAS 1994, 123
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Sexuelle Belästigung durch den Geschäftsführer einer GmbH
+  venue: RdW
+  year: 1994
+  citation: Sexuelle Belästigung durch den Geschäftsführer einer GmbH, RdW 1994, 248
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Betriebsübergang und Kündigung
+  venue: WBl
+  year: 1994
+  citation: Betriebsübergang und Kündigung, WBl 1994, 321
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
+- type: article
+  authors:
+  - Tinhofer, A.
+  title: Darf der Arbeitgeber das Tragen von „Personalausweisen“ anordnen?
+  venue: RdW
+  year: 1994
+  citation: Darf der Arbeitgeber das Tragen von „Personalausweisen“ anordnen?, RdW 1994, 16
+  lang: de
+  source_url: https://www.labourlaw.at
+  status: live
