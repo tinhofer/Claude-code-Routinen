@@ -31,7 +31,6 @@ Pull candidate publications from these authoritative public sources. Record a
 - MANZ shop — books (e.g. *KI und Arbeitsrecht*, ISBN 978-3-214-25670-8):
   https://shop.manz.at
 - RDB Keywords "Arbeitsrecht" (rdb.at) — editorial role
-- EELC (European Employment Law Cases) — national correspondent role
 - Firm news/blog on www.labourlaw.at — talks, Fachtagungen (e.g. the
   "Automatisierung der Arbeit" symposium at WU Wien)
 - Optional, if they exist: ORCID, Google Scholar, LinkedIn "Publications"
