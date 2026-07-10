@@ -5,6 +5,14 @@ prompts for [Claude Code](https://claude.ai/code). Routines live in
 `routines/`, their template is in `templates/routine.md`, the index of
 all routines is the table at the bottom of `README.md`.
 
+## User environment
+
+The repo owner works on **Windows**. When answering questions or
+writing shell commands into a routine, give Windows-compatible
+commands first (PowerShell, `winget`, `pip`), not macOS/Linux ones
+(`brew`, `pipx`, bash-isms). A POSIX variant may be added alongside,
+but Windows is the default.
+
 ## What "good" looks like here
 
 A routine is a reusable prompt. It must:

@@ -14,15 +14,21 @@ when-to-use: When a webinar, hearing, conference talk, or other livestream must 
 Capture a livestream to a local file and transcribe it to text with
 timestamps. Works for streams that are upcoming, currently live, or
 already finished (replay/VOD). Requires `yt-dlp`, `ffmpeg`, and a
-Whisper implementation (`faster-whisper` recommended, or
-`openai-whisper` / `whisper.cpp`).
+Whisper CLI (`whisper-ctranslate2` recommended — the faster-whisper
+backend with a command line — or `openai-whisper` / `whisper.cpp`).
 
 ## Steps
 
 1. **Check the tools.** Verify `yt-dlp`, `ffmpeg`, and a Whisper CLI
-   are installed. If not, install them first
-   (`pipx install yt-dlp faster-whisper`, `brew install ffmpeg` or the
-   platform equivalent) and confirm the versions.
+   are installed. If not, install them first. Windows (PowerShell):
+
+   ```powershell
+   winget install Gyan.FFmpeg yt-dlp.yt-dlp
+   pip install whisper-ctranslate2
+   ```
+
+   (macOS/Linux: `brew install ffmpeg`, `pipx install yt-dlp
+   whisper-ctranslate2`.) Confirm the versions afterwards.
 2. **Probe the stream.** Run:
 
    ```bash
@@ -35,7 +41,9 @@ Whisper implementation (`faster-whisper` recommended, or
    If the probe fails with 403/login, retry with
    `--cookies-from-browser <browser>` (the user must be logged in and
    entitled to watch) and, for embedded players, add
-   `--referer "<page the player is embedded on>"`.
+   `--referer "<page the player is embedded on>"`. On Windows prefer
+   `--cookies-from-browser firefox` — Chrome/Edge encrypt their
+   cookie store in a way yt-dlp often cannot read.
 3. **Upcoming stream:** report the scheduled start time and wait, or
    tell the user when to re-run. `yt-dlp --wait-for-video 60 "{{URL}}"`
    polls every 60 s and starts recording automatically at go-live.
@@ -63,15 +71,14 @@ Whisper implementation (`faster-whisper` recommended, or
 
 7. **Transcribe** with Whisper, pinning the language:
 
-   ```bash
-   faster-whisper --language {{LANG}} --model {{MODEL}} \
-     --output_format srt,txt audio.wav
+   ```powershell
+   whisper-ctranslate2 audio.wav --language {{LANG}} --model {{MODEL}} --output_format all
    # or: whisper audio.wav --language {{LANG}} --model {{MODEL}}
    ```
 
-   For multi-hour recordings prefer `faster-whisper` or `whisper.cpp`
-   (much faster on CPU). Keep both `.txt` (plain text) and `.srt`
-   (timestamps) outputs.
+   For multi-hour recordings prefer `whisper-ctranslate2` or
+   `whisper.cpp` (much faster on CPU than openai-whisper). Keep both
+   the `.txt` (plain text) and `.srt` (timestamps) outputs.
 8. **Verify and report.** Spot-check the transcript against 2–3 random
    points in the recording (names, numbers, technical terms). Report
    using the output format below.
