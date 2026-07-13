@@ -10,6 +10,7 @@ to your own project.
 ```
 routines/
   code-review.md         # Review a diff or PR
+  daily-arbeitsrecht.md  # Daily RIS check for new OGH labour-law decisions
   refactor.md            # Guided refactor with safety checks
   debug.md               # Systematic bug hunt
   release-checklist.md   # Pre-release verification
@@ -47,6 +48,7 @@ the routine is loaded into context when needed.
 | Routine | Purpose |
 | --- | --- |
 | [code-review](routines/code-review.md) | Structured review of a diff or PR |
+| [daily-arbeitsrecht](routines/daily-arbeitsrecht.md) | Daily RIS-API check for new OGH decisions (8 ObA / 9 ObA), logged to a Google Sheet |
 | [refactor](routines/refactor.md) | Plan and execute a refactor safely |
 | [debug](routines/debug.md) | Reproduce, isolate, and fix a bug |
 | [release-checklist](routines/release-checklist.md) | Pre-release verification |
