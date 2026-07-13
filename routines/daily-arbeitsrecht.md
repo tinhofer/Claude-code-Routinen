@@ -52,19 +52,29 @@ liegen im Drive-Ordner "Daily Arbeitsrecht"
        ?Applikation=Justiz
        &Geschaeftszahl=8ObA*
        &ImRisSeit=ZweiWochen
+       &Dokumenttyp%5BSucheInEntscheidungstexten%5D=on
        &DokumenteProSeite=OneHundred
        &Seitennummer=1
    Header: Accept: application/json
    ```
 
-   - Die Antwort ist JSON (OgdSearchResult -> OgdDocumentResults ->
-     Hits + Liste OgdDocumentReference). Wenn Hits größer als die
-     Seitengröße ist, erhöhe Seitennummer und frage weiter ab.
-   - Extrahiere pro Dokument aus den Metadaten: Geschäftszahl,
-     Entscheidungsdatum, Dokumenttyp, Normen, ECLI (falls vorhanden)
-     und die HTML-Dokument-URL (ris.bka.gv.at).
-   - Berücksichtige NUR Entscheidungstexte (Dokumenttyp "Text");
-     verwirf Rechtssätze.
+   - Der Parameter Dokumenttyp[SucheInEntscheidungstexten]=on
+     (Klammern URL-kodiert als %5B %5D) ist PFLICHT: ohne ihn
+     durchsucht die API nur Rechtssätze und liefert null
+     Entscheidungstexte. Mit ihm sind alle Treffer Entscheidungstexte
+     (Dokumenttyp "Text", Dokument-IDs beginnen mit JJT_).
+   - Die Antwort ist JSON: OgdSearchResult -> OgdDocumentResults ->
+     Hits ("#text" = Trefferzahl) + Liste OgdDocumentReference. Wenn
+     Hits größer als die Seitengröße ist, erhöhe Seitennummer und
+     frage weiter ab.
+   - Relevante Felder pro Dokument (jeweils unter Data):
+     Metadaten.Judikatur.Geschaeftszahl.item (z. B. "9ObA16/26g"),
+     Metadaten.Judikatur.Entscheidungsdatum (JJJJ-MM-TT),
+     Metadaten.Judikatur.EuropeanCaseLawIdentifier (ECLI),
+     Metadaten.Judikatur.GesamteEntscheidungUrl (kanonischer
+     RIS-Link für das Log) sowie in Dokumentliste.ContentReference
+     .Urls.ContentUrl die URL mit DataType "Html" (Volltext für
+     Schritt 4).
    - Das Zeitfenster ImRisSeit=ZweiWochen überlappt bewusst mit den
      Vorläufen (Puffer für RIS-Einspielverzögerungen und ausgefallene
      Läufe); Duplikate entfernt Schritt 3.
@@ -83,12 +93,14 @@ liegen im Drive-Ordner "Daily Arbeitsrecht"
    älterem Entscheidungsdatum auf, solange sie noch nicht im Log
    stehen.
 4. **Entscheidungen lesen und zusammenfassen.** Rufe für jede neue
-   Entscheidung den HTML-Volltext über den RIS-Link ab (WebFetch).
-   Erstelle eine deutsche Zusammenfassung (3-5 Sätze: Sachverhalt in
-   einem Satz, tragende Begründung, Ergebnis) und einen Relevanz-Satz
-   für die arbeitsrechtliche Praxis. Ist der Volltext nicht abrufbar,
-   fasse nur die Metadaten zusammen und vermerke "Volltext nicht
-   abrufbar".
+   Entscheidung den Volltext über die Html-ContentUrl ab (WebFetch;
+   www.ris.bka.gv.at). Erstelle eine deutsche Zusammenfassung (3-5
+   Sätze: Sachverhalt in einem Satz, tragende Begründung, Ergebnis),
+   einen Relevanz-Satz für die arbeitsrechtliche Praxis und notiere
+   die im Entscheidungstext zentral behandelten Normen (die
+   Suchtreffer-Metadaten enthalten bei Entscheidungstexten kein
+   Normen-Feld). Ist der Volltext nicht abrufbar, fasse nur die
+   Metadaten zusammen und vermerke "Volltext nicht abrufbar".
 5. **Bericht erstellen und speichern.** Erstelle den Tagesbericht im
    Format aus *Output format* und speichere ihn im Ordner
    (create_file mit parentId = {{drive-folder-id}}, base64-kodiertem
@@ -132,7 +144,7 @@ Markdown-Bericht ("RIS-Update-JJJJ-MM-TT.md"):
 # Daily Arbeitsrecht - [heutiges Datum]
 
 ## OGH [Geschäftszahl] ([Entscheidungsdatum])
-**Normen:** [Normen aus den Metadaten]
+**Normen:** [zentrale Normen aus dem Entscheidungstext, sonst "-"]
 [3-5 Sätze Zusammenfassung auf Deutsch.]
 Relevanz: [1 Satz Einordnung für die arbeitsrechtliche Praxis.]
 [RIS-Link](URL)
@@ -147,8 +159,9 @@ Neue Zeilen im Log-Spreadsheet:
 Gericht           "OGH"
 Geschäftszahl     z. B. "8ObA80/25y" (wie von der API geliefert)
 Entscheidungsdatum JJJJ-MM-TT
-Normen            Normen aus den Metadaten, mit "; " getrennt
-RIS-Link          vollständige URL des Entscheidungstexts
+Normen            zentrale Normen aus dem Entscheidungstext, mit
+                  "; " getrennt (leer, wenn nicht feststellbar)
+RIS-Link          GesamteEntscheidungUrl aus den Metadaten
 Recherchedatum    heutiges Datum, TT.MM.JJJJ
 Zusammenfassung   1-2 Sätze, knapper als im Bericht
 ```
