@@ -29,15 +29,24 @@ liegen im Drive-Ordner "Daily Arbeitsrecht"
 ## Steps
 
 1. **Bisheriges Log lesen (neueste Log-Datei finden).** Suche mit
-   search_files im Ordner nach Google Spreadsheets, deren Titel mit
-   "Arbeitsrecht - Log" beginnt (Query: parentId =
-   '{{drive-folder-id}}' and title contains 'Arbeitsrecht - Log' and
-   mimeType = 'application/vnd.google-apps.spreadsheet').
+   search_files im Ordner nach Dateien, deren Titel mit
+   "Arbeitsrecht - Log" beginnt (Query exakt: parentId =
+   '{{drive-folder-id}}' and title contains 'Arbeitsrecht - Log').
+   Füge der Query KEINE mimeType-Klausel hinzu: Der mimeType-Filter
+   des Drive-Connectors liefert in Kombination mit parentId
+   fälschlich null Treffer (verifiziert). Filtere Spreadsheets
+   stattdessen anhand des mimeType-Felds in den Suchergebnissen.
    - Wähle die Datei mit dem jüngsten Datum im Titel (Format
      "Arbeitsrecht - Log JJJJ-MM-TT"); bei Zweifel entscheidet das
      neueste createdTime.
-   - Falls KEINE solche Datei existiert (Erstlauf), gibt es keine
-     bestehenden Zeilen; die Duplikatprüfung entfällt.
+   - Erstlauf ist NUR der Fall, in dem die Suche erfolgreich war und
+     null Log-Dateien geliefert hat; dann gibt es keine bestehenden
+     Zeilen und die Duplikatprüfung entfällt. Schlägt die Suche oder
+     das Lesen der Log-Datei dagegen mit einem Fehler fehl, versuche
+     es bis zu 3-mal erneut; danach brich den GESAMTEN Lauf ab und
+     melde das Problem im Chat. Niemals bei Fehlern als Erstlauf
+     weitermachen - sonst entstehen Duplikate und das Log verliert
+     seine Historie.
    - Lies andernfalls den GESAMTEN Inhalt mit read_file_content.
      Spalten: Gericht (A), Geschäftszahl (B), Entscheidungsdatum (C),
      Normen (D), RIS-Link (E), Recherchedatum (F), Zusammenfassung (G).
@@ -124,7 +133,9 @@ liegen im Drive-Ordner "Daily Arbeitsrecht"
       disableConversionToGoogleType NICHT setzen (die Datei soll zu
       einem Google Spreadsheet konvertiert werden).
    3. Titel der Datei: "Arbeitsrecht - Log JJJJ-MM-TT" - zwingend mit
-      dem HEUTIGEN Datum aus dem Kontext.
+      dem HEUTIGEN Datum aus dem Kontext. Existiert heute bereits
+      eine Log-Datei (Mehrfachlauf am selben Tag), verwende sie als
+      Basis und häng an den neuen Titel " (2)", " (3)" usw. an.
    4. Prüfe nach dem Upload mit get_file_metadata, dass die Datei
       existiert, als Google Spreadsheet vorliegt und der Titel das
       heutige Datum trägt. Falls nicht, korrigiere durch erneuten
