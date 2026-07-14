@@ -1,0 +1,201 @@
+---
+name: daily-arbeitsrecht
+purpose: "Tägliche Abfrage der offenen RIS-API auf neue OGH-Entscheidungen der arbeitsrechtlichen Senate (8 ObA, 9 ObA), mit Zusammenfassung als Markdown-Bericht und Fortschreibung eines Google-Sheet-Logs auf Google Drive."
+inputs:
+  - "Drive-Ordner-ID für Log und Berichte (default: 1w1k70O0vBEGh3yLfLPhfxzBB4hCd4XIV, Ordner \"Daily Arbeitsrecht\")"
+  - "Geschäftszahl-Muster (default: 8ObA* und 9ObA*)"
+when-to-use: "Als tägliche Cloud-Routine (Scheduled Session auf claude.ai/code). Die Umgebung braucht den Google-Drive-Connector und eine Netzwerk-Policy, die data.bka.gv.at und ris.bka.gv.at erlaubt. Später erweiterbar um weitere Gerichte (VwGH, VfGH, DSB) über zusätzliche Abfrage-Muster."
+---
+
+# Daily Arbeitsrecht
+
+Du bist der "Daily Arbeitsrecht"-Task. Führe folgende Schritte autonom
+aus. Du arbeitest in einer Remote-Umgebung (Cloud); Lese- und
+Schreibvorgänge auf Google Drive laufen über den Google-Drive-MCP-
+Connector, die Judikatur-Abfrage über die offene RIS-API
+(data.bka.gv.at, per Bash/curl oder WebFetch).
+
+WICHTIG - aktuelles Datum: Verwende für alle Datumsangaben (Dateinamen,
+Recherchedatum, Berichtskopf) ausschließlich das heutige Datum aus dem
+Kontext (currentDate). Übernimm niemals ein Datum aus dem Namen oder
+Inhalt einer Vorgängerdatei und rate kein Datum.
+
+Gegenstand: neue Entscheidungen des OGH in Arbeitsrechtssachen,
+ausschließlich der 8. und 9. Senat (Geschäftszahl-Muster
+{{geschaeftszahl-muster}}, default 8ObA* und 9ObA*). Alle Dateien
+liegen im Drive-Ordner "Daily Arbeitsrecht"
+(Folder-ID: {{drive-folder-id}}).
+
+## Steps
+
+1. **Bisheriges Log lesen (neueste Log-Datei finden).** Suche mit
+   search_files im Ordner nach Dateien, deren Titel mit
+   "Arbeitsrecht - Log" beginnt (Query exakt: parentId =
+   '{{drive-folder-id}}' and title contains 'Arbeitsrecht - Log').
+   Füge der Query KEINE mimeType-Klausel hinzu: Der mimeType-Filter
+   des Drive-Connectors liefert in Kombination mit parentId
+   fälschlich null Treffer (verifiziert). Filtere Spreadsheets
+   stattdessen anhand des mimeType-Felds in den Suchergebnissen.
+   - Wähle die Datei mit dem jüngsten Datum im Titel (Format
+     "Arbeitsrecht - Log JJJJ-MM-TT"); bei Zweifel entscheidet das
+     neueste createdTime.
+   - Erstlauf ist NUR der Fall, in dem die Suche erfolgreich war und
+     null Log-Dateien geliefert hat; dann gibt es keine bestehenden
+     Zeilen und die Duplikatprüfung entfällt. Schlägt die Suche oder
+     das Lesen der Log-Datei dagegen mit einem Fehler fehl, versuche
+     es bis zu 3-mal erneut; danach brich den GESAMTEN Lauf ab und
+     melde das Problem im Chat. Niemals bei Fehlern als Erstlauf
+     weitermachen - sonst entstehen Duplikate und das Log verliert
+     seine Historie.
+   - Lies andernfalls den GESAMTEN Inhalt mit read_file_content.
+     Spalten: Gericht (A), Geschäftszahl (B), Entscheidungsdatum (C),
+     Normen (D), RIS-Link (E), Recherchedatum (F), Zusammenfassung (G).
+     Merke dir: a) alle Geschäftszahlen (B) und RIS-Links (E) zur
+     Duplikatprüfung, b) alle bestehenden Zeilen vollständig - sie
+     werden in Schritt 6 in die neue Log-Datei übernommen.
+2. **RIS-API abfragen.** Frage für JEDES Geschäftszahl-Muster (default:
+   8ObA* und 9ObA*) die offene RIS-API ab:
+
+   ```
+   GET https://data.bka.gv.at/ris/api/v2.6/Judikatur
+       ?Applikation=Justiz
+       &Geschaeftszahl=8ObA*
+       &ImRisSeit=ZweiWochen
+       &Dokumenttyp%5BSucheInEntscheidungstexten%5D=on
+       &DokumenteProSeite=OneHundred
+       &Seitennummer=1
+   Header: Accept: application/json
+   ```
+
+   - Der Parameter Dokumenttyp[SucheInEntscheidungstexten]=on
+     (Klammern URL-kodiert als %5B %5D) ist PFLICHT: ohne ihn
+     durchsucht die API nur Rechtssätze und liefert null
+     Entscheidungstexte. Mit ihm sind alle Treffer Entscheidungstexte
+     (Dokumenttyp "Text", Dokument-IDs beginnen mit JJT_).
+   - Die Antwort ist JSON: OgdSearchResult -> OgdDocumentResults ->
+     Hits ("#text" = Trefferzahl) + Liste OgdDocumentReference. Wenn
+     Hits größer als die Seitengröße ist, erhöhe Seitennummer und
+     frage weiter ab.
+   - Relevante Felder pro Dokument (jeweils unter Data):
+     Metadaten.Judikatur.Geschaeftszahl.item (z. B. "9ObA16/26g"),
+     Metadaten.Judikatur.Entscheidungsdatum (JJJJ-MM-TT),
+     Metadaten.Judikatur.EuropeanCaseLawIdentifier (ECLI),
+     Metadaten.Judikatur.GesamteEntscheidungUrl (kanonischer
+     RIS-Link für das Log) sowie in Dokumentliste.ContentReference
+     .Urls.ContentUrl die URL mit DataType "Html" (Volltext für
+     Schritt 4).
+   - Das Zeitfenster ImRisSeit=ZweiWochen überlappt bewusst mit den
+     Vorläufen (Puffer für RIS-Einspielverzögerungen und ausgefallene
+     Läufe); Duplikate entfernt Schritt 3.
+   - Fallbacks: Liefert die API einen Fehler oder akzeptiert einen
+     Parameter nicht, rufe die API-Übersicht
+     https://data.bka.gv.at/ris/api/v2.6/ ab und passe die Parameter
+     an. Liefert der Accept-Header kein JSON, verarbeite die
+     XML-Antwort. Letzte Ausweichlösung: RIS-Judikatursuche
+     https://ris.bka.gv.at/Jus/ per WebFetch.
+3. **Duplikate herausfiltern.** Normalisiere Geschäftszahlen
+   (Leerzeichen entfernen, Groß-/Kleinschreibung ignorieren) und
+   vergleiche gegen die in Schritt 1 gemerkten Geschäftszahlen UND
+   RIS-Links. Verarbeite nur Entscheidungen weiter, die in keinem von
+   beiden vorkommen. Achtung: "neu im RIS" bedeutet nicht
+   "Entscheidungsdatum von heute" - nimm auch Entscheidungen mit
+   älterem Entscheidungsdatum auf, solange sie noch nicht im Log
+   stehen.
+4. **Entscheidungen lesen und zusammenfassen.** Rufe für jede neue
+   Entscheidung den Volltext über die Html-ContentUrl ab (WebFetch;
+   www.ris.bka.gv.at). Erstelle eine deutsche Zusammenfassung (3-5
+   Sätze: Sachverhalt in einem Satz, tragende Begründung, Ergebnis),
+   einen Relevanz-Satz für die arbeitsrechtliche Praxis und notiere
+   die im Entscheidungstext zentral behandelten Normen (die
+   Suchtreffer-Metadaten enthalten bei Entscheidungstexten kein
+   Normen-Feld). Ist der Volltext nicht abrufbar, fasse nur die
+   Metadaten zusammen und vermerke "Volltext nicht abrufbar".
+5. **Bericht erstellen und speichern.** Erstelle den Tagesbericht im
+   Format aus *Output format* und speichere ihn im Ordner
+   (create_file mit parentId = {{drive-folder-id}}, base64-kodiertem
+   Content und disableConversionToGoogleType = true). Dateiname:
+   "RIS-Update-JJJJ-MM-TT.md" mit dem heutigen Datum. Falls KEINE
+   neuen Entscheidungen gefunden wurden: erstelle keinen Bericht und
+   keine Dateien, melde nur im Chat "Keine neuen Entscheidungen der
+   Senate 8 ObA / 9 ObA im RIS." und überspringe Schritt 6.
+6. **Log fortschreiben (neues Gesamt-Spreadsheet mit Tagesdatum).**
+   Der Google-Drive-Connector kann bestehende Dateien NICHT verändern.
+   Schreibe das Log daher rollierend fort:
+   1. Baue eine CSV mit der Kopfzeile
+      (Gericht,Geschäftszahl,Entscheidungsdatum,Normen,RIS-Link,Recherchedatum,Zusammenfassung),
+      dann ALLEN bestehenden Zeilen aus der in Schritt 1 gelesenen
+      Datei (unverändert, in derselben Reihenfolge; beim Erstlauf:
+      keine), dann den neuen Zeilen. Setze alle Felder in doppelte
+      Anführungszeichen und escape enthaltene Anführungszeichen
+      (CSV-konform).
+   2. Lade die CSV mit create_file hoch: parentId =
+      {{drive-folder-id}}, contentMimeType = text/csv,
+      disableConversionToGoogleType NICHT setzen (die Datei soll zu
+      einem Google Spreadsheet konvertiert werden).
+   3. Titel der Datei: "Arbeitsrecht - Log JJJJ-MM-TT" - zwingend mit
+      dem HEUTIGEN Datum aus dem Kontext. Existiert heute bereits
+      eine Log-Datei (Mehrfachlauf am selben Tag), verwende sie als
+      Basis und häng an den neuen Titel " (2)", " (3)" usw. an.
+   4. Prüfe nach dem Upload mit get_file_metadata, dass die Datei
+      existiert, als Google Spreadsheet vorliegt und der Titel das
+      heutige Datum trägt. Falls nicht, korrigiere durch erneuten
+      Upload. Lösche keine alten Log-Dateien (der Connector kann das
+      nicht); die Bereinigung übernimmt der Nutzer manuell.
+7. **Im Chat berichten.** Melde die neuen Entscheidungen im Format aus
+   *Output format*, die Anzahl der neuen Zeilen sowie Name und Link
+   der heute erstellten Log-Datei mit dem Hinweis, dass dies jetzt die
+   aktuelle Gesamtversion ist. Bei null Funden genügt die Kurzmeldung
+   aus Schritt 5.
+
+## Output format
+
+Markdown-Bericht ("RIS-Update-JJJJ-MM-TT.md"):
+
+```
+# Daily Arbeitsrecht - [heutiges Datum]
+
+## OGH [Geschäftszahl] ([Entscheidungsdatum])
+**Normen:** [zentrale Normen aus dem Entscheidungstext, sonst "-"]
+[3-5 Sätze Zusammenfassung auf Deutsch.]
+Relevanz: [1 Satz Einordnung für die arbeitsrechtliche Praxis.]
+[RIS-Link](URL)
+
+## Zusammenfassung
+[X neue Entscheidungen (davon Y zu 8 ObA, Z zu 9 ObA).]
+```
+
+Neue Zeilen im Log-Spreadsheet:
+
+```
+Gericht           "OGH"
+Geschäftszahl     z. B. "8ObA80/25y" (wie von der API geliefert)
+Entscheidungsdatum JJJJ-MM-TT
+Normen            zentrale Normen aus dem Entscheidungstext, mit
+                  "; " getrennt (leer, wenn nicht feststellbar)
+RIS-Link          GesamteEntscheidungUrl aus den Metadaten
+Recherchedatum    heutiges Datum, TT.MM.JJJJ
+Zusammenfassung   1-2 Sätze, knapper als im Bericht
+```
+
+Chat-Meldung pro Fund:
+
+```
+**OGH [Geschäftszahl], [Entscheidungsdatum]** ([RIS-Link](URL))
+1-2 Sätze zum Inhalt.
+```
+
+## Guardrails
+
+- Nur Entscheidungen, die die RIS-API tatsächlich geliefert hat -
+  keine Geschäftszahlen, Daten oder Inhalte erfinden oder aus dem
+  Gedächtnis ergänzen.
+- Nie eine Geschäftszahl oder einen Link melden, der bereits im Log
+  steht.
+- Bestehende Log-Zeilen unverändert übernehmen; nie Zeilen löschen
+  oder umformulieren.
+- Dateinamen tragen immer das heutige Datum aus currentDate, nie ein
+  übernommenes oder geschätztes Datum.
+- Ist data.bka.gv.at oder ris.bka.gv.at nicht erreichbar
+  (Netzwerk-Policy), brich ab und melde im Chat, dass die Domains in
+  der Allowlist der Umgebung fehlen - keine Ersatzrecherche über
+  Suchmaschinen, keine Inhalte aus zweiter Hand.
