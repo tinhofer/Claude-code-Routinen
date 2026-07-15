@@ -5,7 +5,7 @@ inputs:
   - "Stream URL (e.g. https://vimeo.com/<id>)"
   - "Spoken language of the stream (default: de)"
   - "Whisper model size (default: medium; use large-v3 for best quality)"
-  - "Output directory for recording + transcript (default: ./recordings)"
+  - "Output directory for recording + transcript (default: C:\\Users\\Andreas Tinhofer\\OneDrive - Dr. Andreas Tinhofer\\002_Transkripte)"
 when-to-use: When a webinar, hearing, conference talk, or other livestream must be captured and turned into a text transcript — live while it runs, or afterwards from the replay/VOD.
 ---
 
@@ -16,6 +16,16 @@ timestamps. Works for streams that are upcoming, currently live, or
 already finished (replay/VOD). Requires `yt-dlp`, `ffmpeg`, and a
 Whisper CLI (`whisper-ctranslate2` recommended — the faster-whisper
 backend with a command line — or `openai-whisper` / `whisper.cpp`).
+
+Unless the user names a different output directory, `{{OUTDIR}}` is
+
+```
+C:\Users\Andreas Tinhofer\OneDrive - Dr. Andreas Tinhofer\002_Transkripte
+```
+
+— a OneDrive-synced folder, so recording and transcript are
+automatically available on the user's other PCs. The path contains
+spaces: always quote it in commands.
 
 ## Steps
 
