@@ -18,9 +18,12 @@ Requires `yt-dlp`, `ffmpeg`, and Python with `img2pdf`, `Pillow`, and
 `imagehash`.
 
 Unless the user names a different output directory, `{{OUTDIR}}` is
-`C:\Users\Andreas Tinhofer\Downloads`. Work in a temporary
-subfolder (`{{OUTDIR}}\slides-<video-id>\`) so intermediate frames
-never clutter the output directory; only the finished PDF stays.
+`C:\Users\Andreas Tinhofer\Downloads`. The path contains a space:
+always quote it in commands. Work in a temporary subfolder
+(`{{OUTDIR}}\slides-<video-id>\`) so intermediate frames never
+clutter the output directory; only the finished PDF stays. After
+step 3, run all commands from inside that subfolder so the relative
+paths (`video.mp4`, `frames/`) resolve.
 
 ## Steps
 
@@ -56,17 +59,26 @@ never clutter the output directory; only the finished PDF stays.
    ```
 
 4. **Extract one frame per slide change** with ffmpeg's scene
-   detection:
+   detection. `cd` into the temp subfolder first; ffmpeg does not
+   create output directories, so create `frames/` before the call:
 
    ```bash
+   mkdir frames
    ffmpeg -i video.mp4 \
      -vf "select='gt(scene,{{THRESHOLD}})',showinfo" \
      -fps_mode vfr frames/%04d.png
    ```
 
-   Also grab the very first frame (`-vf "select='eq(n,0)'"`) — scene
-   detection only fires on *changes*, so the opening slide is missed
-   otherwise. Compare the frame count against the video: a 45-minute
+   Also grab the very first frame — scene detection only fires on
+   *changes*, so the opening slide is missed otherwise. Write it to
+   `frames/0000.png` (the detection run starts numbering at `0001`,
+   so this sorts first without overwriting anything):
+
+   ```bash
+   ffmpeg -i video.mp4 -vf "select='eq(n,0)'" \
+     -frames:v 1 frames/0000.png
+   ```
+ Compare the frame count against the video: a 45-minute
    talk has maybe 30–80 slides. Hundreds of frames → the video has
    animations or an embedded webcam; raise the threshold (0.2–0.3)
    or crop first (step 5). Only a handful → lower it (0.03–0.05).
@@ -101,7 +113,10 @@ never clutter the output directory; only the finished PDF stays.
    ```
 
    Tune the distance (6) if slides are wrongly merged (lower it) or
-   duplicates survive (raise it).
+   duplicates survive (raise it). Note that only *adjacent* frames
+   are compared: a very slow animated build can drift past the
+   threshold across many frames and still leave a duplicate — raise
+   the distance if that happens.
 7. **Assemble the PDF** from the kept frames, in order:
 
    ```python
